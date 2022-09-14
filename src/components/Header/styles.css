@@ -1,0 +1,23 @@
+.header {
+    display:flex;
+    align-items:flex-end;
+    height: 350px;
+    background-image: url(https://images.pexels.com/photos/53483/strawberries-crepe-dessert-sweet-53483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);
+background-size: cover;
+border-radius:20px;
+}
+
+.header-content {
+    width:100%;
+    padding:20px;
+    margin-bottom : 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color:#fff;
+    text-align: center;
+}
+
+.header-title{
+    font-family: serif;
+    font-size:1.8em;
+    margin-bottom:7px;
+}

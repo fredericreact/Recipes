@@ -5,9 +5,11 @@ import Header from '../Header';
 import Ingredients from '../Ingredients';
 import Etapes from '../Etapes';
 
+import './styles.css';
+
 // == Composant
 const App = () => (
-  <div >
+  <div className="app">
   <Header/>
   <Ingredients/>
   <Etapes/>
