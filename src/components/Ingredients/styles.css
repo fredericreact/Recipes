@@ -1,0 +1,22 @@
+.ingredients {
+    padding: 15px 0;
+  }
+  
+  .ingredient {
+    padding: 10px 25px;
+    border-bottom: 1px solid lightgray;
+  }
+  
+  .ingredient:last-child {
+    border: none;
+  }
+  
+  .ingredient-quantity {
+    padding: 5px 10px;
+    background-color: #F17F42;
+    color: #fff;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+ 
+  
