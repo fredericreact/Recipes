@@ -1,5 +1,8 @@
 import React from 'react';
-import './styles.css'
+import './styles.css';
+
+import Proptypes from 'prop-types';
+
 const Ingredients = (props) => {
 const {list} =props;
 return (
@@ -28,4 +31,18 @@ return (
 }
 ;
 
+
+Ingredients.propTypes = {
+    list: Proptypes.arrayOf(
+        Proptypes.shape({
+        id: Proptypes.number.isRequired,
+        name: Proptypes.string.isRequired,
+        quantity:Proptypes.number.isRequired,
+        unit: Proptypes.string.isRequired,
+        }),
+    ).isRequired,
+    
+    };
+
 export default Ingredients;
+

@@ -1,5 +1,8 @@
 import React from 'react';
 import './styles.css';
+
+import Proptypes from 'prop-types';
+
 const Header = (props) => {
    const {title, difficulty, author, image} = props;
     return(
@@ -18,5 +21,13 @@ style={{
 
 )
 };
+
+Header.propTypes = {
+title: Proptypes.string.isRequired,
+difficulty: Proptypes.string.isRequired,
+author: Proptypes.string.isRequired,
+iamge: Proptypes.string.isRequired,
+
+}
 
 export default Header;
