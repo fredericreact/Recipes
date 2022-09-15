@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://reactjs.org/docs/create-a-new-react-app.html 
 
-## Available Scripts
+        npx create-react-app my-app
+        cd my-app
+        npm start
 
-In the project directory, you can run:
+# 2 ways to declare a function which return something
 
-### `npm start`
+        const App = () => (
+        );
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+        const App = () => {
+        return
+        };
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Un composant, c'est une fonction
 
-### `npm run build`
+    const Header = (props) => {
+    
+        const {title, difficulty, author, image} = props;
+    
+    return(
+    <div 
+    className="header" 
+    style={{backgroundImage: `url(${image})`,}}>
+        <div className="header-content">
+            <h1 className="header-title">{title}</h1>
+            <p className="header-infos">
+                {author} - {difficulty}
+            </p>
+        </div>
+    </div>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    )
+    };
+    
+>L’endroit ou je declare le composant, c’est le fichier avec le nom du composant.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    const App = () => (
+      <div className="app">
+      <Header 
+      title={data.title}
+      difficulty={data.difficulty}
+      author={data.author}
+      image = {data.thumbnail}
+      />  
+      <Ingredients list={data.ingredients}/>
+      <Etapes/>
+      </div>
+    );
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+>L'endroit ou j'utilise le composant, c'est la ou je lui donne les parametres (props).
 
-### `npm run eject`
+    const Ingredients = (props) => {
+    const {list} =props;
+    return (
+    <div className='ingredients'>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    {
+        list.map((ingredientObject) => (
+        <div key={ingredientObject.id} className='ingredients'>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        <span className='ingredient-quantity'>
+        {ingredientObject.quantity} {ingredientObject.unit}
+        </span>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+        <span className='ingredient-name'>
+        {ingredientObject.name}
+        </span>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+        </div>   
+        ))
+    }
 
-## Learn More
+    </div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    )};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> Quand tu utilises map, il faut donner une key
 
-### Code Splitting
+# Proptypes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    npm install --save prop-types
+    
+<br>
+    
+    Header.propTypes = {
+    title: Proptypes.string.isRequired,
+    difficulty: Proptypes.string.isRequired,
+    author: Proptypes.string.isRequired,
+    iamge: Proptypes.string.isRequired,
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    }
+    
+<br>
+    
+    Ingredients.propTypes = {
+    list: Proptypes.arrayOf(
+        Proptypes.shape({
+        id: Proptypes.number.isRequired,
+        name: Proptypes.string.isRequired,
+        quantity:Proptypes.number.isRequired,
+        unit: Proptypes.string.isRequired,
+        }),
+    ).isRequired,
+    
+    };
+    
