@@ -81,7 +81,7 @@ https://reactjs.org/docs/create-a-new-react-app.html
 
     )};
 
-> Quand tu utilises map, il faut donner une key
+> Quand tu utilises map, il faut donner une key.
 
 # Proptypes
 
